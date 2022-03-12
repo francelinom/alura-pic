@@ -1,3 +1,4 @@
+import { lowerCaseValidator } from './../../shared/validators/lower-case.validators';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -23,7 +24,7 @@ export class singUpComponent implements OnInit {
           Validators.required,
           Validators.min(2),
           Validators.max(30),
-          Validators.pattern(/^[a-z0-9_\-]+$/),
+          lowerCaseValidator,
         ],
       ],
       password: [
