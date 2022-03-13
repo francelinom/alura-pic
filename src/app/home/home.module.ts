@@ -1,3 +1,4 @@
+import { HomeRoutingModule } from './home.routing.module';
 import { HomeComponent } from './home.component';
 import { singUpComponent } from './singup/singup.component';
 import { RouterModule } from '@angular/router';
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';
     VmessageModule,
     RouterModule,
     FormsModule,
+    HomeRoutingModule,
   ],
   exports: [HomeComponent],
 })
