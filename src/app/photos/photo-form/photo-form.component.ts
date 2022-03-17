@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotoFormComponent implements OnInit {
   photoForm!: FormGroup;
+  file!: File | any;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -17,5 +18,21 @@ export class PhotoFormComponent implements OnInit {
       description: ['', Validators.maxLength(300)],
       allowComments: [true],
     });
+  }
+
+  upload() {
+    const description = this.photoForm.get('description')?.value;
+    const allowComments = this.photoForm.get('allowComments')?.value;
+    const dados = this.photoForm.getRawValue();
+  }
+
+  onChange(target: any) {
+    if (target instanceof EventTarget) {
+      let element = target as HTMLInputElement;
+      let files = element.files;
+      if (files) {
+        this.file = files[0];
+      }
+    }
   }
 }
