@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class PhotoFormComponent implements OnInit {
   photoForm!: FormGroup;
   file!: File | any;
+  preview!: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,5 +45,12 @@ export class PhotoFormComponent implements OnInit {
         this.file = files[0];
       }
     }
+  }
+
+  handleFile(file: any) {
+    this.file = file;
+    const reader = new FileReader();
+    reader.onload = (event: any) => (this.preview = event.target.result);
+    reader.readAsDataURL(file);
   }
 }
