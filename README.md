@@ -1,1 +1,1 @@
-# Alurapic
+# Alurapic.
